@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{05B2EF08-33D8-8494-C489-295E7F66C79C}") = "Swiveler", "Assembly-CSharp-firstpass-vs.csproj", "{505EC4DE-0698-0E7D-7064-8A5D83E848F5}"
 EndProject
+Project("{05B2EF08-33D8-8494-C489-295E7F66C79C}") = "Swiveler", "Assembly-CSharp-vs.csproj", "{2266D92B-E753-ED6B-7B07-A2A06ACD11F5}"
+EndProject
 Project("{05B2EF08-33D8-8494-C489-295E7F66C79C}") = "Swiveler", "Assembly-CSharp-Editor-vs.csproj", "{B25418F8-CD8E-A271-24C3-1EA1AA8B3363}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{505EC4DE-0698-0E7D-7064-8A5D83E848F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505EC4DE-0698-0E7D-7064-8A5D83E848F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505EC4DE-0698-0E7D-7064-8A5D83E848F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2266D92B-E753-ED6B-7B07-A2A06ACD11F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2266D92B-E753-ED6B-7B07-A2A06ACD11F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2266D92B-E753-ED6B-7B07-A2A06ACD11F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2266D92B-E753-ED6B-7B07-A2A06ACD11F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B25418F8-CD8E-A271-24C3-1EA1AA8B3363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B25418F8-CD8E-A271-24C3-1EA1AA8B3363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B25418F8-CD8E-A271-24C3-1EA1AA8B3363}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-		GlobalSection(MonoDevelopProperties) = preSolution
+													GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
