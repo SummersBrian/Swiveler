@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ExitReached : MonoBehaviour {
 
-	public GameObject winPanel;
+	public GameObject WinPanel;
 
-	public void OnTriggerEnter(Collider col) {
-		winPanel.SetActive (true);
+	void Start() {
+		WinPanel.SetActive (false);
+	}
+
+	void OnTriggerEnter(Collider col) {
+		Application.LoadLevel (1);
 	}
 }
