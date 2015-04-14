@@ -33,28 +33,26 @@ namespace UnityStandardAssets._2D
         {
 			if (Input.GetKeyDown (KeyCode.Alpha1)) {
 				rotationAngle += 90.0f;
-				level.transform.rotation = Quaternion.AngleAxis(rotationAngle, new Vector3(0,0,1));
+				level.transform.rotation = Quaternion.AngleAxis (rotationAngle, new Vector3 (0, 0, 1));
 			}
 
-            if (!m_Jump)
-            {
-                // Read the jump input in Update so button presses aren't missed.
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+			if (!m_Jump) {
+				// Read the jump input in Update so button presses aren't missed.
+				m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+			}
         }
 
 
         private void FixedUpdate()
         {
-            // Read the inputs.
-            bool crouch = Input.GetKey(KeyCode.LeftControl);
-            float h = Input.GetAxis("Horizontal");
 
-            // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump);
-            m_Jump = false;
-        }
-
-
+			// Read the inputs.
+			bool crouch = Input.GetKey (KeyCode.LeftControl);
+			float h = Input.GetAxis ("Horizontal");
+							// Pass all parameters to the character control script.
+			m_Character.Move (h, crouch, m_Jump);
+			m_Jump = false;
+		}
+        
     }
 }

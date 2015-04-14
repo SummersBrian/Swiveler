@@ -4,13 +4,26 @@ using System.Collections;
 
 public class ExitReached : MonoBehaviour {
 
-	public GameObject WinPanel;
+	public GameObject player;
+	public GameObject winPanel;
+	private float xMin;
+	private float xMax;
+	private float yMin;
+	private float yMax;
+
 
 	void Start() {
-		WinPanel.SetActive (false);
+		xMin = transform.position.x - transform.lossyScale.x;
+		xMax = transform.position.x + transform.lossyScale.x;
+		yMin = transform.position.y - transform.lossyScale.y;
+		yMax = transform.position.y + transform.lossyScale.y;
 	}
 
-	void OnTriggerEnter(Collider col) {
-		Application.LoadLevel (1);
+	void FixedUpdate() {
+		if (player.transform.position.x > xMin && player.transform.position.x < xMax 
+		    && player.transform.position.y > yMin && player.transform.position.y < yMax) {
+			winPanel.SetActive(true);
+			player.SetActive(false);
+		}
 	}
 }
