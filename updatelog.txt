@@ -1,4 +1,0 @@
-Swiveler Update Log
---- 4/6/15 - creation and rough first level completed. User is
-able to move character with input and swivel a level piece
-to allow for completion of puzzle.
