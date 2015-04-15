@@ -16,7 +16,8 @@ namespace UnityStandardAssets._2D
     {
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
-		public GameObject level;
+		public GameObject alpha1_block1;
+		public GameObject alpha1_block2;
 		float rotationAngle;
 
 		void Start() {
@@ -33,7 +34,8 @@ namespace UnityStandardAssets._2D
         {
 			if (Input.GetKeyDown (KeyCode.Alpha1)) {
 				rotationAngle += 90.0f;
-				level.transform.rotation = Quaternion.AngleAxis (rotationAngle, new Vector3 (0, 0, 1));
+				alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
+				alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
 			}
 
 			if (!m_Jump) {

@@ -11,11 +11,14 @@ namespace UnityStandardAssets._2D
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
 
-
-		public float xMax = 13;
-		public float xMin = -13;
-		public float yMax = 8;
-		public float yMin = -8;
+		public GameObject floor;
+		public GameObject ceiling;
+		public GameObject rightWall;
+		public GameObject leftWall;
+		private float xMax;
+		private float xMin;
+		private float yMax;
+		private float yMin;
 
         private float m_OffsetZ;
         private Vector3 m_LastTargetPosition;
@@ -28,6 +31,10 @@ namespace UnityStandardAssets._2D
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;
+			yMin = floor.transform.position.y;
+			yMax = ceiling.transform.position.y;
+			xMin = leftWall.transform.position.x;
+			xMax = rightWall.transform.position.x;
         }
 
 
