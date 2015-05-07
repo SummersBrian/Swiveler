@@ -1,0 +1,12 @@
+Swiveler Puzzle Rules (can tweak based on development needs):
+1. Player can rotate designated squares
+2. Squares of the same designation/color rotate simultaneously
+3. Cocentric or contained squares
+	a. Outer (parent) squares affect inner (child) squares - rotation of a parent will rotate itself and all children about the parent's center. This results in no change of the squares relative to each other, but a rotation change of all the squares relative to the player.
+	b. Child squares do not affect their parent, only their own children.
+4. Player can rotate squares mid motion. This enables some timing and skill based jumps to solve puzzles, so there is no need to lock a configuration to solve a puzzle
+5. Player can slide platforms that are designated sliders (ie. platforms that have the "slide mechanism" attached).
+6. Player can slide platforms only:
+	a. When they are grounded. The player cannot slide platforms mid jumping
+	b. When two adjacent slide mechanisms are touching (this allows for transfer of the platform between squares)
+	c. When the player is not standing on the platform they wish to slide.
