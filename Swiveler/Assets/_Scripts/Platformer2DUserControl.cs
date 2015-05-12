@@ -16,7 +16,7 @@ namespace UnityStandardAssets._2D
     {
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
-		public GameObject rotatingSquareParent;
+		public GameObject rotatingSquaresContainer;
 		public Camera2DFollow camera;
 
         private void Awake()
@@ -27,29 +27,37 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
-			if (Input.GetKeyDown (KeyCode.Alpha1)) {
-				//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
-				//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
-				Transform t = rotatingSquareParent.transform.GetChild(0);
-				for (int i = 0; i < t.childCount; i++) {
-					Transform c = t.GetChild(i);
-					float currRot = c.eulerAngles.z;
-					if (currRot == 360.0f)
-						currRot = 0.0f;
-					c.rotation = Quaternion.AngleAxis(currRot + 90.0f, c.forward);
+			if (rotatingSquaresContainer != null) {
+				if (rotatingSquaresContainer.transform.childCount > 0) {
+					if (Input.GetKeyDown (KeyCode.Alpha1)) {
+						//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
+						//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
+						Transform t = rotatingSquaresContainer.transform.GetChild (0);
+						for (int i = 0; i < t.childCount; i++) {
+							Transform c = t.GetChild (i);
+							float currRot = c.eulerAngles.z;
+							currRot = Mathf.Floor (currRot + 90.0f);
+							if (currRot == 360.0f)
+								currRot = 0.0f;
+							c.rotation = Quaternion.AngleAxis (currRot, c.forward);
+						}
+					}
 				}
-			}
 
-			if (Input.GetKeyDown (KeyCode.Alpha2)) {
-				//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
-				//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
-				Transform t = rotatingSquareParent.transform.GetChild(1);
-				for (int i = 0; i < t.childCount; i++) {
-					Transform c = t.GetChild(i);
-					float currRot = c.eulerAngles.z;
-					if (currRot == 360.0f)
-						currRot = 0.0f;
-					c.rotation = Quaternion.AngleAxis(currRot + 90.0f, c.forward);
+				if (rotatingSquaresContainer.transform.childCount > 1) {
+					if (Input.GetKeyDown (KeyCode.Alpha2)) {
+						//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
+						//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
+						Transform t = rotatingSquaresContainer.transform.GetChild (1);
+						for (int i = 0; i < t.childCount; i++) {
+							Transform c = t.GetChild (i);
+							float currRot = c.eulerAngles.z;
+							currRot = Mathf.Floor (currRot + 90.0f);
+							if (currRot == 360.0f)
+								currRot = 0.0f;
+							c.rotation = Quaternion.AngleAxis (currRot, c.forward);
+						}
+					}
 				}
 			}
 

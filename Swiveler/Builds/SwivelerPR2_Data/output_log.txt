@@ -1,0 +1,64 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 760 (ID=0x1187)
+    Vendor:   NVIDIA
+    VRAM:     4027 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.034 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\git\swiveler\Swiveler\Builds\SwivelerPR2_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.039723 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 438.
+Total: 0.218672 ms (FindLiveObjects: 0.032228 ms CreateObjectMapping: 0.027409 ms MarkObjects: 0.155118 ms  DeleteObjects: 0.003313 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.575595 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 438.
+Total: 0.188853 ms (FindLiveObjects: 0.024096 ms CreateObjectMapping: 0.011445 ms MarkObjects: 0.148191 ms  DeleteObjects: 0.004216 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.473187 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 450.
+Total: 0.221382 ms (FindLiveObjects: 0.028915 ms CreateObjectMapping: 0.022590 ms MarkObjects: 0.165359 ms  DeleteObjects: 0.003614 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.358730 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 448.
+Total: 0.226804 ms (FindLiveObjects: 0.030120 ms CreateObjectMapping: 0.023192 ms MarkObjects: 0.167166 ms  DeleteObjects: 0.006024 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.385838 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 487.
+Total: 0.228912 ms (FindLiveObjects: 0.029517 ms CreateObjectMapping: 0.028312 ms MarkObjects: 0.167166 ms  DeleteObjects: 0.003313 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.458127 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 503.
+Total: 0.236443 ms (FindLiveObjects: 0.035541 ms CreateObjectMapping: 0.020782 ms MarkObjects: 0.176805 ms  DeleteObjects: 0.003012 ms)
+
+Level 'puzzle_05' (-1) couldn't be loaded because it has not been added to the build settings.
+To add a level to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 272)
+

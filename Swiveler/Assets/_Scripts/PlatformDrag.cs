@@ -12,9 +12,14 @@ public class PlatformDrag : MonoBehaviour {
 	private bool dragging;
 	private Transform toDrag;
 	public GameObject rotatingSquare;
+	public bool horizontal;
 
 	void Start() {
 		dragging = false;
+		if (horizontal)
+			myOrientation = Orientation.Horizontal;
+		else
+			myOrientation = Orientation.Vertical;
 	}
 	
 	void Update(){
@@ -46,12 +51,11 @@ public class PlatformDrag : MonoBehaviour {
 					v3.x += offset.x;
 				}
 					toDrag.position = new Vector3(v3.x, toDrag.position.y, toDrag.position.z);
-				//transform.position = new Vector3(v3.x, lockedPosition);
 			} else {
 				if (v3.y > slideMax) {
-						v3.y = slideMax - toDrag.lossyScale.y / 2.0f;
+						v3.y = slideMax + toDrag.lossyScale.y / 2.0f;
 				} else if (v3.y < slideMin){
-						v3.y = slideMin - toDrag.lossyScale.y / 2.0f;
+						v3.y = slideMin + toDrag.lossyScale.y / 2.0f;
 				} else {
 					v3.y += offset.y;
 				}
@@ -76,21 +80,23 @@ public class PlatformDrag : MonoBehaviour {
 					SlidebarConnector sb = toDrag.GetComponentInParent<SlidebarConnector>();
 					if (sb.swapOwnerOfPlatform(toDrag.position.x, toDrag.position.y)) {
 						toDrag.SetParent(sb.connectedSlideBar.transform, true);
-						this.setRotatingSquare(sb.rotatingSquare);
+						if (rotatingSquare != null)
+							this.setRotatingSquare(sb.rotatingSquare);
 					}
 
 				} else {
 					delta1 = toDrag.position.y - slideMin;
 					delta2 = toDrag.position.y - slideMax + (toDrag.lossyScale.y / 2.0f);
 					if (delta1 * delta1 <= delta2 * delta2) {
-						toDrag.position = new Vector3 (toDrag.position.x, slideMin - toDrag.lossyScale.y / 2.0f, toDrag.position.z);
+						toDrag.position = new Vector3 (toDrag.position.x, slideMin + toDrag.lossyScale.y / 2.0f, toDrag.position.z);
 					} else {
-						toDrag.position = new Vector3 (toDrag.position.x, slideMax - toDrag.lossyScale.y / 2.0f, toDrag.position.z);
+						toDrag.position = new Vector3 (toDrag.position.x, slideMax + toDrag.lossyScale.y / 2.0f, toDrag.position.z);
 					}
 					SlidebarConnector sb = toDrag.GetComponentInParent<SlidebarConnector>();
 					if (sb.swapOwnerOfPlatform(toDrag.position.x, toDrag.position.y)) {
 						toDrag.SetParent(sb.connectedSlideBar.transform, true);
-						this.setRotatingSquare(sb.rotatingSquare);
+						if (rotatingSquare != null)
+							this.setRotatingSquare(sb.rotatingSquare);
 					}
 				}
 			}
@@ -99,10 +105,12 @@ public class PlatformDrag : MonoBehaviour {
 		}
 	
 	void setOrientation() {
-		if (rotatingSquare.transform.localEulerAngles.z == 180.0f || rotatingSquare.transform.localEulerAngles.z == 0.0f) {
-			myOrientation = Orientation.Horizontal;
-		} else {
-			myOrientation = Orientation.Vertical;
+		if (rotatingSquare != null) {
+			if (rotatingSquare.transform.localEulerAngles.z == 180.0f || rotatingSquare.transform.localEulerAngles.z == 0.0f) {
+				myOrientation = Orientation.Horizontal;
+			} else {
+				myOrientation = Orientation.Vertical;
+			}
 		}
 	}
 

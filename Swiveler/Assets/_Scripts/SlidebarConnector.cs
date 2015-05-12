@@ -14,17 +14,21 @@ public class SlidebarConnector : MonoBehaviour {
 	private float min;
 	public GameObject connectedPlatformSlot;
 	public SlidebarConnector connectedSlideBar;
+	public bool horizontal;
 
 	void Start() {
-		//setOrientation ();
 		myCollider = GetComponent<BoxCollider2D> ();
+		if (horizontal)
+			myOrientation = Orientation.Horizontal;
+		else
+			myOrientation = Orientation.Vertical;
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.transform.tag != "RotatingPiecesContainer") {
-			findOrientation ();
 			if (platform != null) {
 				if (collider.transform.tag == "SlideBar") {
+					findOrientation ();
 				PlatformDrag platformScript = platform.GetComponent<PlatformDrag> ();
 				connectedSlideBar = collider.GetComponent<SlidebarConnector> ();
 					if (connectedSlideBar.platform != null) {
@@ -93,32 +97,36 @@ public class SlidebarConnector : MonoBehaviour {
 	}
 
 	void findOrientation() {
-		if (rotatingSquare.transform.localEulerAngles.z == 180.0f || rotatingSquare.transform.localEulerAngles.z == 0.0f) {
-			myOrientation = Orientation.Horizontal;
-		} else {
-			myOrientation = Orientation.Vertical;
+		if (rotatingSquare != null) {
+			if (rotatingSquare.transform.localEulerAngles.z == 180.0f || rotatingSquare.transform.localEulerAngles.z == 0.0f) {
+				myOrientation = Orientation.Horizontal;
+			} else {
+				myOrientation = Orientation.Vertical;
+			}
 		}
 	}
 
 	public bool swapOwnerOfPlatform(float x, float y) {
 		float delta1, delta2;
-		if (myOrientation == Orientation.Horizontal) {
-			delta1 = x - platformSlot.transform.position.x;
-			delta2 = x - connectedPlatformSlot.transform.position.x;
-			if (delta1 * delta1 > delta2 * delta2) {
-			//if (x > myCollider.bounds.max.x || x < myCollider.bounds.min.x) {
-				connectedSlideBar.platform = platform;
-				platform = null;
-				return true;
+			if (myOrientation == Orientation.Horizontal) {
+				delta1 = x - platformSlot.transform.position.x;
+				delta2 = x - connectedPlatformSlot.transform.position.x;
+				if (delta1 * delta1 > delta2 * delta2) {
+					//if (x > myCollider.bounds.max.x || x < myCollider.bounds.min.x) {
+					connectedSlideBar.platform = platform;
+					platform = null;
+					return true;
+				} else
+					return false;
+			} else {
+				if (y > myCollider.bounds.max.y || y < myCollider.bounds.min.y) {
+					connectedSlideBar.platform = this.platform;
+					platform = null;
+					return true;
+				} else
+					return false;
 			}
-			else return false;
-		} else {
-			if (y > myCollider.bounds.max.y || y < myCollider.bounds.min.y) {
-				connectedSlideBar.platform = this.platform;
-				platform = null;
-				return true;
-			} else return false;
-		}
+		
 	}
 
 	public bool isConnected() {
