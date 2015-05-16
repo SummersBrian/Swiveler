@@ -1,3 +1,13 @@
+/*
+ * Author: Brian Summers, summers.brian.cs@gmail.com
+ * Date: 5/19/15
+ * 
+ * This file has been modified from its original version in the standard assets package.
+ * 
+ * The only modification is that when the player is in contact with a sliding platform, the
+ * user cannot slide the platform.
+ */
+
 using System;
 using UnityEngine;
 
@@ -43,9 +53,10 @@ namespace UnityStandardAssets._2D
             {
                 if (colliders[i].gameObject != gameObject) {
                     m_Grounded = true;
+
+					//Modificiation
 					if (colliders[i].transform.tag == "SlidePlatform") {
 						colliders[i].GetComponent<PlatformDrag>().CanSlide(false);
-						//groundObject = colliders[i].gameObject;
 					}
 				}
 					

@@ -1,9 +1,10 @@
 /*
- * Author: Brian Summers
- * Date: 4/6/15
+ * Author: Brian Summers, summers.brian.cs@gmail.com
+ * Date: 5/19/15
  * This file has been modified from its original version in the standard assets package.
  * 
- * 
+ * This script controls character movement and user input. Modifications include: user's ability
+ * to control pieces in the scene, and user can access an in game menu.
  */
 using System;
 using UnityEngine;
@@ -17,7 +18,8 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
 		public GameObject rotatingSquaresContainer;
-		public Camera2DFollow camera;
+		public GameObject menu;
+		private bool menu_showing = false;
 
         private void Awake()
         {
@@ -27,11 +29,12 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
+			/*
+			 * Modification : added user control of menu and pieces in the scene
+			 */
 			if (rotatingSquaresContainer != null) {
 				if (rotatingSquaresContainer.transform.childCount > 0) {
 					if (Input.GetKeyDown (KeyCode.Alpha1)) {
-						//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
-						//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
 						Transform t = rotatingSquaresContainer.transform.GetChild (0);
 						for (int i = 0; i < t.childCount; i++) {
 							Transform c = t.GetChild (i);
@@ -46,8 +49,6 @@ namespace UnityStandardAssets._2D
 
 				if (rotatingSquaresContainer.transform.childCount > 1) {
 					if (Input.GetKeyDown (KeyCode.Alpha2)) {
-						//alpha1_block1.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block1.transform.forward);
-						//alpha1_block2.transform.rotation = Quaternion.AngleAxis(rotationAngle, alpha1_block2.transform.forward);
 						Transform t = rotatingSquaresContainer.transform.GetChild (1);
 						for (int i = 0; i < t.childCount; i++) {
 							Transform c = t.GetChild (i);
@@ -61,6 +62,20 @@ namespace UnityStandardAssets._2D
 				}
 			}
 
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				if (!menu_showing) {
+					menu_showing = true;
+					menu.SetActive (true);
+				} else {
+					menu_showing = false;
+					menu.SetActive (false);
+				}
+			}
+			/*
+			 * End  of modification
+			 */
+
+
 			if (!m_Jump) {
 				// Read the jump input in Update so button presses aren't missed.
 				m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
@@ -70,21 +85,18 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+			if (!menu_showing) {
+				// Read the inputs.
+				bool crouch = Input.GetKey (KeyCode.LeftControl);
 
-			// Read the inputs.
-			bool crouch = Input.GetKey (KeyCode.LeftControl);
-			float dir = Input.GetAxis ("WASD");
-							// Pass all parameters to the character control script.
-			m_Character.Move (dir, crouch, m_Jump);
-			if (Input.GetKey(KeyCode.LeftShift)) {
-				float camMoveHoriz = Input.GetAxis ("LeftRightArrows");
-				float camMoveVert = Input.GetAxis ("UpDownArrows");
-				camera.moveCamera (new Vector3 (camMoveHoriz, camMoveVert, 0));
-			} else {
-				camera.releaseControl();
+				//Modification: changed the input axis from "horizontal" to "WASD"
+				float dir = Input.GetAxis ("WASD");
+
+				// Pass all parameters to the character control script.
+				m_Character.Move (dir, crouch, m_Jump);
+
+				m_Jump = false;
 			}
-			//camera.releaseControl();
-			m_Jump = false;
 		}
         
     }
